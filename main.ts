@@ -13,14 +13,13 @@ basic.forever(function () {
     voeding += -1
 })
 basic.forever(function () {
-    if ((voeding && knuffel) > 10) {
+    if (voeding > 10 || knuffel > 10) {
         basic.showIcon(IconNames.Happy)
-    } else {
+    }
+    if (voeding < 10 && voeding > 0 && (knuffel < 10 && knuffel > 0)) {
         basic.showIcon(IconNames.Sad)
     }
-})
-basic.forever(function () {
-    if (knuffel || voeding < 0 && 0 == dood) {
+    if (voeding < 0 || knuffel < 0 && 0 == dood) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -28,5 +27,8 @@ basic.forever(function () {
             # # # # #
             . . . . .
             `)
+    }
+    if (dood == 0 && false) {
+    	
     }
 })
